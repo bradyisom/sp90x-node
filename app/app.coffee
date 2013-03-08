@@ -19,6 +19,7 @@ app.configure ->
   app.set 'views', "#{__dirname}/views"
   app.set 'view engine', 'ejs'
   app.use express.static("#{__dirname}/../public")
+  app.use '/html', express.static("#{__dirname}/../app/assets/html")
   app.use express.favicon()
   app.use express.logger('dev')
   app.use express.bodyParser()

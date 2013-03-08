@@ -6,6 +6,7 @@ requirePaths =
 
 if jsPaths
 	for own key, value of jsPaths
+		key = key.substr(4) if key.indexOf('lib/') == 0
 		requirePaths.paths[key] = value
 
 require.config
@@ -20,5 +21,5 @@ require.config
 			deps: ['underscore', 'jquery']
 			exports: 'Backbone'
 
-require ['app'], (App)->
-	new App().initialize()
+require ['router'], (Router)->
+	window.App = new Router()
